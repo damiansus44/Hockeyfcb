@@ -2,145 +2,144 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Stramatel 452 - Hockey Hielo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .penalty-card { transition: all 0.2s ease; }
-        .glass { background: rgba(30, 41, 59, 0.9); backdrop-filter: blur(12px); }
-        input::placeholder { color: #94a3b8; }
+        /* Optimización para evitar scroll elástico en iOS y mejorar el tacto */
+        html, body {
+            height: 100%;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .penalty-card { transition: transform 0.1s ease; }
+        .glass { background: rgba(30, 41, 59, 0.95); backdrop-filter: blur(12px); }
+        /* Ajuste de cuadrícula para pantallas muy pequeñas */
+        @media (max-width: 360px) {
+            .grid-btns { grid-template-cols: 1fr; }
+        }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans pb-10">
+<body class="bg-slate-950 text-slate-100 font-sans selection:bg-blue-500 selection:text-white">
 
-    <nav class="sticky top-0 z-50 glass p-4 shadow-2xl border-b border-slate-700">
-        <div class="flex items-center justify-between mb-4">
-            <div>
-                <h1 class="text-xl font-black text-blue-400 italic leading-none">STRAMATEL 452</h1>
-                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">Manual de Oficiales de Mesa</p>
+    <nav class="sticky top-0 z-50 glass p-4 shadow-2xl border-b border-slate-700 w-full">
+        <div class="max-w-md mx-auto flex items-center justify-between mb-4">
+            <div class="flex-1">
+                <h1 class="text-xl font-black text-blue-400 italic leading-none tracking-tight">STRAMATEL 452</h1>
+                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">Oficiales de Mesa</p>
             </div>
-            <div class="flex flex-col items-end">
-                <span class="bg-blue-500/20 text-blue-400 text-[9px] font-black px-2 py-0.5 rounded border border-blue-500/30 mb-1">EDICIÓN PRO</span>
-                <span class="bg-red-600 animate-pulse text-[9px] font-bold px-2 py-0.5 rounded-full uppercase">En Vivo</span>
+            <div class="flex flex-col items-end gap-1">
+                <span class="bg-blue-500/20 text-blue-400 text-[9px] font-black px-2 py-0.5 rounded border border-blue-500/30">PRO</span>
+                <div class="flex items-center gap-1 bg-red-600 px-2 py-0.5 rounded-full">
+                    <span class="w-1.5 h-1.5 bg-white rounded-full animate-ping"></span>
+                    <span class="text-[9px] font-bold uppercase">Vivo</span>
+                </div>
             </div>
         </div>
-        <div class="relative">
-            <i class="fa fa-search absolute left-3 top-3.5 text-slate-500"></i>
-            <input type="text" id="searchInput" placeholder="Busca falta o acción (ej: Gancho, 2+2, gol...)" 
-            class="w-full bg-slate-900 border border-slate-700 rounded-xl py-3 pl-10 pr-4 text-white focus:ring-2 focus:ring-blue-500 outline-none transition-all shadow-inner text-sm">
+        
+        <div class="max-w-md mx-auto relative">
+            <i class="fa fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-500"></i>
+            <input type="text" id="searchInput" placeholder="Busca falta, código o acción..." 
+            class="w-full bg-slate-900 border border-slate-700 rounded-xl py-3 pl-10 pr-4 text-white focus:ring-2 focus:ring-blue-500 outline-none transition-all shadow-inner text-sm appearance-none">
         </div>
     </nav>
 
-    <div class="p-4 space-y-6">
+    <main class="max-w-md mx-auto p-4 space-y-6 pb-20">
         
         <section>
-            <h2 class="text-[11px] font-black text-slate-500 uppercase mb-3 tracking-[0.2em] ml-1 text-center italic">Controles Rápidos de Consola</h2>
-            <div class="grid grid-cols-2 gap-3">
-                <div class="bg-slate-800 border border-slate-700 p-4 rounded-2xl flex flex-col items-center shadow-lg active:bg-slate-700 active:scale-95 transition-all text-center" 
-                     onclick="alert('RESTAR GOL:\n1. Mantén pulsado C (16)\n2. Pulsa botón de GOL (+1)\n3. El marcador restará 1 gol.')">
+            <h2 class="text-[11px] font-black text-slate-500 uppercase mb-3 tracking-[0.2em] ml-1 italic">Controles Rápidos</h2>
+            <div class="grid grid-cols-2 gap-3 grid-btns">
+                
+                <button onclick="alert('RESTAR GOL:\n1. Mantén C (16)\n2. Pulsa GOL (+1)\n3. Restará 1 gol.')" 
+                     class="bg-slate-800 border border-slate-700 p-4 rounded-2xl flex flex-col items-center shadow-lg active:bg-slate-700 active:scale-95 transition-all">
                     <i class="fa fa-minus-circle text-blue-400 text-2xl mb-2"></i>
                     <span class="text-[10px] font-black uppercase tracking-tighter">Restar Gol</span>
-                </div>
-                <div class="bg-slate-800 border border-slate-700 p-4 rounded-2xl flex flex-col items-center shadow-lg active:bg-slate-700 active:scale-95 transition-all text-center" 
-                     onclick="alert('EDITAR RELOJ:\n1. Pulsa PARAR (Stop)\n2. Mantén C (16) + Crono (18)\n3. Teclea tiempo (ej: 1230) + Validar (V)')">
+                </button>
+
+                <button onclick="alert('EDITAR RELOJ:\n1. Pulsa PARAR\n2. Mantén C (16) + Crono (18)\n3. Teclea tiempo + V')" 
+                     class="bg-slate-800 border border-slate-700 p-4 rounded-2xl flex flex-col items-center shadow-lg active:bg-slate-700 active:scale-95 transition-all">
                     <i class="fa fa-clock text-amber-400 text-2xl mb-2"></i>
                     <span class="text-[10px] font-black uppercase tracking-tighter">Editar Reloj</span>
-                </div>
-                <div class="bg-slate-800 border border-slate-700 p-4 rounded-2xl flex flex-col items-center shadow-lg active:bg-slate-700 active:scale-95 transition-all text-center" 
-                     onclick="alert('EDITAR TIEMPO FALTA:\n1. En consola AUX, usa LIST (15/16) para buscar al jugador.\n2. Pulsa botón EDITAR (18 - Flecha curva).\n3. Teclea nuevo tiempo y pulsa V.')">
+                </button>
+
+                <button onclick="alert('EDITAR FALTA:\n1. LIST (15/16) para buscar jugador.\n2. Pulsa EDITAR (18).\n3. Teclea tiempo + V.')" 
+                     class="bg-slate-800 border border-slate-700 p-4 rounded-2xl flex flex-col items-center shadow-lg active:bg-slate-700 active:scale-95 transition-all">
                     <i class="fa fa-stopwatch text-orange-500 text-2xl mb-2"></i>
                     <span class="text-[10px] font-black uppercase tracking-tighter italic">Editar Falta</span>
-                </div>
-                <div class="bg-slate-800 border border-slate-700 p-4 rounded-2xl flex flex-col items-center shadow-lg active:bg-slate-700 active:scale-95 transition-all text-center" 
-                     onclick="alert('BUSCAR JUGADOR SANCIONADO:\n1. Usa las flechas amarillas LIST (15 Izquierda / 16 Derecha).\n2. La pantalla LCD mostrará el Dorsal y el Tiempo restante de cada sancionado activo.')">
+                </button>
+
+                <button onclick="alert('BUSCAR JUGADOR:\n1. Usa flechas LIST (15/16).\n2. La pantalla LCD mostrará el Dorsal y Tiempo.')" 
+                     class="bg-slate-800 border border-slate-700 p-4 rounded-2xl flex flex-col items-center shadow-lg active:bg-slate-700 active:scale-95 transition-all text-center">
                     <i class="fa fa-user-slash text-slate-300 text-2xl mb-2"></i>
-                    <span class="text-[10px] font-black uppercase tracking-tighter">Buscar Expulsado</span>
-                </div>
+                    <span class="text-[10px] font-black uppercase tracking-tighter leading-tight">Buscar Expulsado</span>
+                </button>
             </div>
         </section>
 
         <section id="faultsContainer">
-            <h2 class="text-[11px] font-black text-slate-500 uppercase mb-3 tracking-[0.2em] ml-1">Diccionario LNHH / FEDHielo</h2>
-            
+            <h2 class="text-[11px] font-black text-slate-500 uppercase mb-3 tracking-[0.2em] ml-1">Reglamento IIHF</h2>
             <div class="space-y-3">
-                <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-blue-500 p-4 rounded-xl" data-search="menor 2 minutos gancho zancadilla hachazo retencion interferencia minor">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 class="font-bold text-blue-400 italic uppercase">Menor - 2 Minutos</h3>
-                            <p class="text-[11px] text-slate-400 mt-1 italic">Enganche, Zancadilla, Hachazo, Interferencia...</p>
+                
+                <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-blue-500 p-4 rounded-xl shadow-md" data-search="menor 2 minutos gancho zancadilla hachazo retencion interferencia">
+                    <div class="flex justify-between items-start gap-2">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-blue-400 italic uppercase text-sm">Menor - 2 Min</h3>
+                            <p class="text-[11px] text-slate-400 mt-0.5 leading-tight italic font-medium">Gancho, Zancadilla, Hachazo...</p>
                         </div>
-                        <span class="bg-blue-500 text-white text-[10px] px-2 py-1 rounded font-black uppercase tracking-tighter">Botón 10</span>
+                        <span class="bg-blue-500 text-white text-[9px] px-2 py-1 rounded font-black uppercase whitespace-nowrap">Botón 10</span>
                     </div>
                     <div class="mt-3 flex items-center text-[10px] text-blue-300 bg-blue-500/10 p-2 rounded border border-blue-500/20">
-                        <i class="fa fa-info-circle mr-2"></i> SE BORRA SI HAY GOL EN CONTRA (LIST + BTN 17)
+                        <i class="fa fa-info-circle mr-2 shrink-0"></i> Se borra si hay gol en contra (LIST + 17)
                     </div>
                 </div>
 
-                <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-orange-500 p-4 rounded-xl" data-search="2+2 doble menor sangre baston alto dureza accidental">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 class="font-bold text-orange-400 italic uppercase">Doble Menor - 2+2 Min</h3>
-                            <p class="text-[11px] text-slate-400 mt-1 italic">Bastón alto (con sangre), Dureza excesiva...</p>
+                <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-orange-500 p-4 rounded-xl shadow-md" data-search="2+2 doble menor sangre baston alto dureza">
+                    <div class="flex justify-between items-start gap-2">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-orange-400 italic uppercase text-sm">Doble Menor - 2+2 Min</h3>
+                            <p class="text-[11px] text-slate-400 mt-0.5 leading-tight italic font-medium">Bastón alto (sangre), Dureza...</p>
                         </div>
-                        <span class="bg-orange-500 text-white text-[10px] px-2 py-1 rounded font-black uppercase italic tracking-tighter">Botón 10 x2</span>
-                    </div>
-                    <div class="mt-3 text-[10px] text-orange-200 bg-orange-500/10 p-2 rounded border border-orange-500/20">
-                        Cargar 2' + Dorsal + V. Repetir proceso para los segundos 2'.
+                        <span class="bg-orange-500 text-white text-[9px] px-2 py-1 rounded font-black uppercase whitespace-nowrap italic">BTN 10 x2</span>
                     </div>
                 </div>
 
-                <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-red-600 p-4 rounded-xl" data-search="mayor 5 minutos pelea fight valla carga peligrosa expulsado castigo">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 class="font-bold text-red-500 italic uppercase">Mayor - 5 Minutos</h3>
-                            <p class="text-[11px] text-slate-400 mt-1 italic">Peleas, Carga contra la valla, Expulsión...</p>
+                <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-red-600 p-4 rounded-xl shadow-md" data-search="mayor 5 minutos pelea fight valla expulsado">
+                    <div class="flex justify-between items-start gap-2">
+                        <div class="flex-1">
+                            <h3 class="font-bold text-red-500 italic uppercase text-sm">Mayor - 5 Min</h3>
+                            <p class="text-[11px] text-slate-400 mt-0.5 leading-tight italic font-medium">Peleas, Carga valla, Expulsión...</p>
                         </div>
-                        <span class="bg-red-600 text-white text-[10px] px-2 py-1 rounded font-black uppercase tracking-tighter">Botón 12</span>
+                        <span class="bg-red-600 text-white text-[9px] px-2 py-1 rounded font-black uppercase whitespace-nowrap">Botón 12</span>
                     </div>
-                    <div class="mt-3 text-[10px] text-red-200 bg-red-600/20 p-2 rounded border border-red-600/30 font-bold uppercase tracking-tight">
-                        ⚠️ NUNCA SE BORRA POR GOL EN CONTRA
+                    <div class="mt-3 text-[10px] text-red-200 bg-red-600/20 p-2 rounded border border-red-600/30 font-bold uppercase">
+                        ⚠️ Nunca se borra por gol
                     </div>
                 </div>
 
-                <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-slate-500 p-4 rounded-xl" data-search="conducta mala conducta 10 minutos protesta insultos expulsado oficial">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 class="font-bold text-slate-300 italic uppercase">Mala Conducta - 10 Min</h3>
-                            <p class="text-[11px] text-slate-400 mt-1 italic">Protestas, Actitud antideportiva...</p>
-                        </div>
-                        <span class="bg-slate-600 text-white text-[10px] px-2 py-1 rounded font-black uppercase tracking-tighter">Botón 13</span>
-                    </div>
-                    <div class="mt-3 text-[10px] text-slate-400 bg-slate-800 p-2 rounded">
-                        Juego 5vs5. El jugador no entra hasta que el juego pare tras los 10'.
-                    </div>
-                </div>
             </div>
         </section>
 
-        <section class="bg-red-950/20 border border-red-500/20 p-5 rounded-3xl shadow-inner">
+        <section class="bg-red-950/20 border border-red-500/20 p-5 rounded-3xl shadow-inner mb-6">
             <h2 class="text-red-500 font-black text-[11px] uppercase tracking-widest mb-4 flex items-center italic">
-                <i class="fa fa-triangle-exclamation mr-2"></i> Protocolo de Emergencia
+                <i class="fa fa-triangle-exclamation mr-2"></i> SOS Mesa
             </h2>
-            <div class="grid grid-cols-1 gap-3 text-[11px]">
-                <div class="flex items-start gap-3 bg-slate-900/50 p-3 rounded-xl border border-slate-800">
-                    <span class="text-red-500 font-bold">1.</span>
-                    <p><b class="text-slate-100 uppercase italic">Apagón:</b> Enciende y pulsa <b class="text-green-400">V</b> para "Continuar Partido Anterior".</p>
+            <div class="space-y-3 text-[11px]">
+                <div class="flex items-center gap-3 bg-slate-900/50 p-3 rounded-xl border border-slate-800">
+                    <span class="text-red-500 font-bold">1</span>
+                    <p><b class="text-slate-100 italic">Apagón:</b> Enciende y pulsa <b class="text-green-400 italic font-black">V</b></p>
                 </div>
-                <div class="flex items-start gap-3 bg-slate-900/50 p-3 rounded-xl border border-slate-800">
-                    <span class="text-red-500 font-bold">2.</span>
-                    <p><b class="text-slate-100 uppercase italic">Reinicio Total:</b> Mantener 3 seg el botón <b class="text-slate-100 uppercase">RESET (15)</b> en la central.</p>
-                </div>
-                <div class="flex items-start gap-3 bg-slate-900/50 p-3 rounded-xl border border-slate-800">
-                    <span class="text-red-500 font-bold">3.</span>
-                    <p><b class="text-slate-100 uppercase italic">Lista:</b> Usa las teclas <b class="text-blue-400">LIST (15/16)</b> para ver quién está sancionado.</p>
+                <div class="flex items-center gap-3 bg-slate-900/50 p-3 rounded-xl border border-slate-800">
+                    <span class="text-red-500 font-bold">2</span>
+                    <p><b class="text-slate-100 italic">Reinicio:</b> Mantén <b class="text-slate-100 font-black">RESET (15)</b></p>
                 </div>
             </div>
         </section>
 
-    </div>
+    </main>
 
     <script>
+        // Buscador eficiente
         const searchInput = document.getElementById('searchInput');
         const cards = document.querySelectorAll('.penalty-card');
 
@@ -155,6 +154,13 @@
                 }
             });
         });
+        
+        // Evitar zoom accidental al hacer doble tap en botones
+        document.addEventListener('touchstart', function (event) {
+            if (event.touches.length > 1) {
+                event.preventDefault();
+            }
+        }, { passive: false });
     </script>
 </body>
 </html>
