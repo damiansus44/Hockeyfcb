@@ -19,12 +19,12 @@
     <nav class="sticky top-0 z-50 glass p-4 shadow-2xl border-b border-slate-700">
         <div class="flex items-center justify-between mb-4">
             <div>
-                <h1 class="text-xl font-black text-blue-400 italic leading-none uppercase">STRAMATEL 452</h1>
-                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1 italic">Manual de Oficiales de Mesa</p>
+                <h1 class="text-xl font-black text-blue-400 italic leading-none">STRAMATEL 452</h1>
+                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">Manual de Oficiales de Mesa</p>
             </div>
             <div class="flex flex-col items-end">
-                <span class="bg-blue-500/20 text-blue-400 text-[9px] font-black px-2 py-0.5 rounded border border-blue-500/30 mb-1 tracking-tighter">EDICIÓN PRO</span>
-                <span class="bg-red-600 animate-pulse text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-tighter">En Vivo</span>
+                <span class="bg-blue-500/20 text-blue-400 text-[9px] font-black px-2 py-0.5 rounded border border-blue-500/30 mb-1">EDICIÓN PRO</span>
+                <span class="bg-red-600 animate-pulse text-[9px] font-bold px-2 py-0.5 rounded-full uppercase">En Vivo</span>
             </div>
         </div>
         
@@ -44,24 +44,24 @@
         
         <section>
             <h2 class="text-[11px] font-black text-slate-500 uppercase mb-3 tracking-[0.2em] ml-1 text-center italic">Controles Rápidos de Consola</h2>
-            <div class="grid grid-cols-2 gap-3">
-                <div class="bg-slate-800 border border-slate-700 p-4 rounded-2xl flex flex-col items-center shadow-lg active:bg-slate-700 active:scale-95 transition-all text-center" 
+            <div class="grid grid-cols-2 gap-3 text-center">
+                <div class="bg-slate-800 border border-slate-700 p-4 rounded-2xl flex flex-col items-center shadow-lg active:bg-slate-700 active:scale-95 transition-all" 
                      onclick="alert('RESTAR GOL:\n1. Mantén pulsado C (16)\n2. Pulsa botón de GOL (+1)\n3. El marcador restará 1 gol.')">
                     <i class="fa fa-minus-circle text-blue-400 text-2xl mb-2"></i>
                     <span class="text-[10px] font-black uppercase tracking-tighter">Restar Gol</span>
                 </div>
-                <div class="bg-slate-800 border border-slate-700 p-4 rounded-2xl flex flex-col items-center shadow-lg active:bg-slate-700 active:scale-95 transition-all text-center" 
+                <div class="bg-slate-800 border border-slate-700 p-4 rounded-2xl flex flex-col items-center shadow-lg active:bg-slate-700 active:scale-95 transition-all" 
                      onclick="alert('EDITAR RELOJ:\n1. Pulsa PARAR (Stop)\n2. Mantén C (16) + Crono (18)\n3. Teclea tiempo (ej: 1230) + Validar (V)')">
                     <i class="fa fa-clock text-amber-400 text-2xl mb-2"></i>
                     <span class="text-[10px] font-black uppercase tracking-tighter">Editar Reloj</span>
                 </div>
-                <div class="bg-slate-800 border border-slate-700 p-4 rounded-2xl flex flex-col items-center shadow-lg active:bg-slate-700 active:scale-95 transition-all text-center" 
+                <div class="bg-slate-800 border border-slate-700 p-4 rounded-2xl flex flex-col items-center shadow-lg active:bg-slate-700 active:scale-95 transition-all" 
                      onclick="alert('EDITAR TIEMPO FALTA:\n1. En consola AUX, usa LIST (15/16) para buscar al jugador.\n2. Pulsa botón EDITAR (18 - Flecha curva).\n3. Teclea nuevo tiempo y pulsa V.')">
                     <i class="fa fa-stopwatch text-orange-500 text-2xl mb-2"></i>
                     <span class="text-[10px] font-black uppercase tracking-tighter italic">Editar Falta</span>
                 </div>
-                <div class="bg-slate-800 border border-slate-700 p-4 rounded-2xl flex flex-col items-center shadow-lg active:bg-slate-700 active:scale-95 transition-all text-center" 
-                     onclick="alert('BUSCAR JUGADOR SANCIONADO:\n1. Usa las flechas amarillas LIST (15 Izquierda / 16 Derecha).\n2. La pantalla LCD mostrará el Dorsal y el Tiempo restante de cada sancionado activo.')">
+                <div class="bg-slate-800 border border-slate-700 p-4 rounded-2xl flex flex-col items-center shadow-lg active:bg-slate-700 active:scale-95 transition-all" 
+                     onclick="alert('BUSCAR JUGADOR SANCIONADO:\n1. Usa las flechas amarillas LIST (15 Izquierda / 16 Derecha).\n2. La pantalla LCD mostrará el Dorsal y el Tiempo restante.')">
                     <i class="fa fa-user-slash text-slate-300 text-2xl mb-2"></i>
                     <span class="text-[10px] font-black uppercase tracking-tighter">Buscar Expulsado</span>
                 </div>
@@ -79,44 +79,11 @@
                         </div>
                         <span class="bg-blue-500 text-white text-[9px] px-2 py-1 rounded font-black uppercase tracking-tight">Botón 10</span>
                     </div>
-                    <div class="mt-3 flex items-center text-[10px] text-blue-300 bg-blue-500/10 p-2 rounded border border-blue-500/20">
-                        <i class="fa fa-info-circle mr-2 shrink-0"></i> Se borra si hay gol en contra (LIST + BTN 17)
-                    </div>
                 </div>
-
-                <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-orange-500 p-4 rounded-xl" data-search="2+2 doble menor sangre baston alto dureza accidental">
-                    <div class="flex justify-between items-start italic">
-                        <div>
-                            <h3 class="font-bold text-orange-400 uppercase text-sm leading-tight">Doble Menor - 2+2 Min</h3>
-                            <p class="text-[11px] text-slate-400 mt-1 italic font-medium leading-tight">Bastón alto (sangre), Dureza...</p>
-                        </div>
-                        <span class="bg-orange-500 text-white text-[9px] px-2 py-1 rounded font-black uppercase tracking-tight italic">BTN 10 x2</span>
-                    </div>
                 </div>
-
-                <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-red-600 p-4 rounded-xl" data-search="mayor 5 minutos pelea fight valla carga peligrosa expulsado castigo major">
-                    <div class="flex justify-between items-start italic">
-                        <div>
-                            <h3 class="font-bold text-red-500 uppercase text-sm leading-tight">Mayor - 5 Minutos</h3>
-                            <p class="text-[11px] text-slate-400 mt-1 italic font-medium leading-tight">Peleas, Carga valla, Expulsión...</p>
-                        </div>
-                        <span class="bg-red-600 text-white text-[9px] px-2 py-1 rounded font-black uppercase tracking-tight italic">Botón 12</span>
-                    </div>
-                </div>
-
-                <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-slate-500 p-4 rounded-xl" data-search="conducta mala conducta 10 minutos protesta insultos expulsado oficial misconduct">
-                    <div class="flex justify-between items-start italic">
-                        <div>
-                            <h3 class="font-bold text-slate-300 uppercase text-sm">Mala Conducta - 10 Min</h3>
-                            <p class="text-[11px] text-slate-400 mt-1 italic font-medium leading-tight leading-tight">Protestas, Actitud antideportiva...</p>
-                        </div>
-                        <span class="bg-slate-600 text-white text-[9px] px-2 py-1 rounded font-black uppercase tracking-tight italic">Botón 13</span>
-                    </div>
-                </div>
-            </div>
         </section>
 
-        <section class="bg-red-950/20 border border-red-500/20 p-5 rounded-3xl shadow-inner mb-8">
+        <section class="bg-red-950/20 border border-red-500/20 p-5 rounded-3xl shadow-inner mb-6">
             <h2 class="text-red-500 font-black text-[11px] uppercase tracking-widest mb-4 flex items-center italic">
                 <i class="fa fa-triangle-exclamation mr-2"></i> SOS Mesa
             </h2>
@@ -133,25 +100,26 @@
         </section>
     </div>
 
-    <div id="modalFaltas" class="fixed inset-0 z-[100] bg-slate-950/98 p-4 overflow-y-auto w-full h-full">
-        <div class="max-w-md mx-auto">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-xl font-black text-blue-400 italic leading-tight uppercase">Guía Visual IIHF</h2>
-                <button onclick="cerrarModal()" class="text-slate-400 text-3xl px-2 leading-none">&times;</button>
+    <div id="modalFaltas" class="fixed inset-0 z-[100] bg-slate-950/98 p-4 overflow-y-auto">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-xl font-black text-blue-400 italic leading-tight uppercase">Guía Visual IIHF</h2>
+            <button onclick="cerrarModal()" class="text-slate-400 text-3xl px-2 leading-none">&times;</button>
+        </div>
+        
+        <div class="grid grid-cols-2 gap-4 grid-faltas mb-10">
+            <div class="penalty-card bg-slate-900 border border-slate-800 p-2 rounded-xl text-center" 
+                 onclick="verInfoFalta('TIRO CASTIGO (PENALTY SHOT)', 'Lanzamiento Único', 'NO CARGAR TIEMPO', 'SUMAR +1 GOL SI ENTRA', 'Gesto: Brazos cruzados sobre la cabeza. Detener el reloj inmediatamente.')">
+                <img src="https://raw.githubusercontent.com/damiansus44/Hockeyfcb/refs/heads/main/Imagen%20HEIF.heic" alt="Tiro Castigo" 
+                     onerror="this.src='https://placehold.co/150x150/1e293b/white?text=PENALTY+SHOT'; this.alt='Error de carga: HEIC no soportado nativamente en navegadores antiguos';"
+                     class="mb-2">
+                <span class="text-[10px] font-bold uppercase italic text-yellow-500">Tiro Castigo (PS)</span>
             </div>
-            
-            <div class="grid grid-cols-2 gap-4 grid-faltas mb-10">
-                <div class="penalty-card bg-slate-900 border border-slate-800 p-2 rounded-xl text-center" data-search="tiro castigo penalty shot brazoscruzados castigo lanzamiento" 
-                     onclick="verInfoFalta('TIRO CASTIGO (PENALTY SHOT)', 'Lanzamiento Único', 'NO CARGAR TIEMPO', 'SUMAR +1 GOL SI ENTRA', 'Gesto: Brazos cruzados sobre la cabeza. Detener el reloj inmediatamente, no se descuenta tiempo.')">
-                    <img src="https://i.ibb.co/6y466fJ/penalti.png" alt="Tiro Castigo" class="mb-2">
-                    <span class="text-[10px] font-bold uppercase italic text-yellow-500 italic">Tiro Castigo (PS)</span>
-                </div>
-                
-                <div class="penalty-card bg-slate-900 border border-slate-800 p-2 rounded-xl text-center" data-search="gancho enganche hooking trip trip" onclick="verInfoFalta('GANCHO (HOOKING)', '2 MINUTOS', 'SÍ', 'BTN 10 + Dorsal + V', 'Acción de tirar con stick.')">
-                    <img src="https://i.ibb.co/M9KzG7F/gancho.png" alt="Gancho" class="mb-2">
-                    <span class="text-[10px] font-bold uppercase italic text-blue-400">Gancho</span>
-                </div>
-                </div>
+
+            <div class="penalty-card bg-slate-900 border border-slate-800 p-2 rounded-xl text-center" 
+                 onclick="verInfoFalta('GANCHO (HOOKING)', '2 Minutos', 'SÍ', 'BTN 10 + Dorsal + V', 'Acción de tirar con stick.')">
+                <img src="https://placehold.co/150x150/1e293b/white?text=GANCHO" alt="Gancho" class="mb-2">
+                <span class="text-[10px] font-bold uppercase italic text-blue-400">Gancho</span>
+            </div>
         </div>
     </div>
 
@@ -162,7 +130,7 @@
         searchInput.addEventListener('input', (e) => {
             const term = e.target.value.toLowerCase().trim();
             cards.forEach(card => {
-                const searchContent = card.getAttribute('data-search');
+                const searchContent = card.getAttribute('data-search') || '';
                 if (term === "" || searchContent.includes(term)) {
                     card.classList.remove('hidden');
                 } else {
@@ -173,7 +141,7 @@
 
         function abrirModal() {
             document.getElementById('modalFaltas').style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Evita scroll de fondo
+            document.body.style.overflow = 'hidden';
         }
 
         function cerrarModal() {
