@@ -27,23 +27,35 @@
         </div>
         <div class="relative">
             <i class="fa fa-search absolute left-3 top-3.5 text-slate-500"></i>
-            <input type="text" id="searchInput" placeholder="Busca falta o acción (ej: 2+2, gol, reset...)" 
-            class="w-full bg-slate-900 border border-slate-700 rounded-xl py-3 pl-10 pr-4 text-white focus:ring-2 focus:ring-blue-500 outline-none transition-all shadow-inner">
+            <input type="text" id="searchInput" placeholder="Busca falta o acción (ej: Gancho, 2+2, gol...)" 
+            class="w-full bg-slate-900 border border-slate-700 rounded-xl py-3 pl-10 pr-4 text-white focus:ring-2 focus:ring-blue-500 outline-none transition-all shadow-inner text-sm">
         </div>
     </nav>
 
     <div class="p-4 space-y-6">
         
         <section>
-            <h2 class="text-[11px] font-black text-slate-500 uppercase mb-3 tracking-[0.2em] ml-1">Consola Central - Emergencias</h2>
+            <h2 class="text-[11px] font-black text-slate-500 uppercase mb-3 tracking-[0.2em] ml-1 text-center italic">Controles Rápidos de Consola</h2>
             <div class="grid grid-cols-2 gap-3">
-                <div class="bg-slate-800 border border-slate-700 p-4 rounded-2xl flex flex-col items-center shadow-lg active:bg-slate-700" onclick="alert('CORREGIR GOL:\n1. Mantén pulsado C (16)\n2. Pulsa botón de GOL (+1)\n3. El marcador restará 1 gol.')">
+                <div class="bg-slate-800 border border-slate-700 p-4 rounded-2xl flex flex-col items-center shadow-lg active:bg-slate-700 active:scale-95 transition-all text-center" 
+                     onclick="alert('RESTAR GOL:\n1. Mantén pulsado C (16)\n2. Pulsa botón de GOL (+1)\n3. El marcador restará 1 gol.')">
                     <i class="fa fa-minus-circle text-blue-400 text-2xl mb-2"></i>
-                    <span class="text-[10px] font-black uppercase">Restar Gol</span>
+                    <span class="text-[10px] font-black uppercase tracking-tighter">Restar Gol</span>
                 </div>
-                <div class="bg-slate-800 border border-slate-700 p-4 rounded-2xl flex flex-col items-center shadow-lg active:bg-slate-700" onclick="alert('EDITAR RELOJ:\n1. Pulsa PARAR (Stop)\n2. Mantén C (16) + Crono (18)\n3. Teclea tiempo (ej: 1230) + Validar (V)')">
-                    <i class="fa fa-pen-to-square text-amber-400 text-2xl mb-2"></i>
-                    <span class="text-[10px] font-black uppercase text-amber-400">Editar Reloj</span>
+                <div class="bg-slate-800 border border-slate-700 p-4 rounded-2xl flex flex-col items-center shadow-lg active:bg-slate-700 active:scale-95 transition-all text-center" 
+                     onclick="alert('EDITAR RELOJ:\n1. Pulsa PARAR (Stop)\n2. Mantén C (16) + Crono (18)\n3. Teclea tiempo (ej: 1230) + Validar (V)')">
+                    <i class="fa fa-clock text-amber-400 text-2xl mb-2"></i>
+                    <span class="text-[10px] font-black uppercase tracking-tighter">Editar Reloj</span>
+                </div>
+                <div class="bg-slate-800 border border-slate-700 p-4 rounded-2xl flex flex-col items-center shadow-lg active:bg-slate-700 active:scale-95 transition-all text-center" 
+                     onclick="alert('EDITAR TIEMPO FALTA:\n1. En consola AUX, usa LIST (15/16) para buscar al jugador.\n2. Pulsa botón EDITAR (18 - Flecha curva).\n3. Teclea nuevo tiempo y pulsa V.')">
+                    <i class="fa fa-stopwatch text-orange-500 text-2xl mb-2"></i>
+                    <span class="text-[10px] font-black uppercase tracking-tighter italic">Editar Falta</span>
+                </div>
+                <div class="bg-slate-800 border border-slate-700 p-4 rounded-2xl flex flex-col items-center shadow-lg active:bg-slate-700 active:scale-95 transition-all text-center" 
+                     onclick="alert('BUSCAR JUGADOR SANCIONADO:\n1. Usa las flechas amarillas LIST (15 Izquierda / 16 Derecha).\n2. La pantalla LCD mostrará el Dorsal y el Tiempo restante de cada sancionado activo.')">
+                    <i class="fa fa-user-slash text-slate-300 text-2xl mb-2"></i>
+                    <span class="text-[10px] font-black uppercase tracking-tighter">Buscar Expulsado</span>
                 </div>
             </div>
         </section>
