@@ -10,6 +10,10 @@
         .penalty-card { transition: all 0.2s ease; }
         .glass { background: rgba(30, 41, 59, 0.9); backdrop-filter: blur(12px); }
         input::placeholder { color: #94a3b8; }
+        /* Estilos para el modal visual */
+        #modalFaltas { display: none; }
+        .grid-faltas img { cursor: pointer; transition: transform 0.2s; border-radius: 8px; }
+        .grid-faltas img:hover { transform: scale(1.05); border: 2px solid #3b82f6; }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans pb-10">
@@ -25,10 +29,15 @@
                 <span class="bg-red-600 animate-pulse text-[9px] font-bold px-2 py-0.5 rounded-full uppercase">En Vivo</span>
             </div>
         </div>
-        <div class="relative">
-            <i class="fa fa-search absolute left-3 top-3.5 text-slate-500"></i>
-            <input type="text" id="searchInput" placeholder="Busca falta o acción (ej: Gancho, 2+2, gol...)" 
-            class="w-full bg-slate-900 border border-slate-700 rounded-xl py-3 pl-10 pr-4 text-white focus:ring-2 focus:ring-blue-500 outline-none transition-all shadow-inner text-sm">
+        <div class="flex gap-2 max-w-full">
+            <div class="relative flex-grow">
+                <i class="fa fa-search absolute left-3 top-3.5 text-slate-500"></i>
+                <input type="text" id="searchInput" placeholder="Busca falta o acción..." 
+                class="w-full bg-slate-900 border border-slate-700 rounded-xl py-3 pl-10 pr-4 text-white focus:ring-2 focus:ring-blue-500 outline-none transition-all shadow-inner text-sm">
+            </div>
+            <button onclick="abrirModal()" class="bg-blue-600 hover:bg-blue-500 text-white font-black text-xs px-4 rounded-xl shadow-lg flex items-center gap-2">
+                <i class="fa fa-handshake"></i> FALTAS
+            </button>
         </div>
     </nav>
 
@@ -62,7 +71,6 @@
 
         <section id="faultsContainer">
             <h2 class="text-[11px] font-black text-slate-500 uppercase mb-3 tracking-[0.2em] ml-1">Diccionario LNHH / FEDHielo</h2>
-            
             <div class="space-y-3">
                 <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-blue-500 p-4 rounded-xl" data-search="menor 2 minutos gancho zancadilla hachazo retencion interferencia minor">
                     <div class="flex justify-between items-start">
@@ -76,47 +84,42 @@
                         <i class="fa fa-info-circle mr-2"></i> SE BORRA SI HAY GOL EN CONTRA (LIST + BTN 17)
                     </div>
                 </div>
-
-                <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-orange-500 p-4 rounded-xl" data-search="2+2 doble menor sangre baston alto dureza accidental">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 class="font-bold text-orange-400 italic uppercase">Doble Menor - 2+2 Min</h3>
-                            <p class="text-[11px] text-slate-400 mt-1 italic">Bastón alto (con sangre), Dureza excesiva...</p>
-                        </div>
-                        <span class="bg-orange-500 text-white text-[10px] px-2 py-1 rounded font-black uppercase italic tracking-tighter">Botón 10 x2</span>
-                    </div>
-                    <div class="mt-3 text-[10px] text-orange-200 bg-orange-500/10 p-2 rounded border border-orange-500/20">
-                        Cargar 2' + Dorsal + V. Repetir proceso para los segundos 2'.
-                    </div>
                 </div>
+        </section>
 
-                <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-red-600 p-4 rounded-xl" data-search="mayor 5 minutos pelea fight valla carga peligrosa expulsado castigo">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 class="font-bold text-red-500 italic uppercase">Mayor - 5 Minutos</h3>
-                            <p class="text-[11px] text-slate-400 mt-1 italic">Peleas, Carga contra la valla, Expulsión...</p>
-                        </div>
-                        <span class="bg-red-600 text-white text-[10px] px-2 py-1 rounded font-black uppercase tracking-tighter">Botón 12</span>
-                    </div>
-                    <div class="mt-3 text-[10px] text-red-200 bg-red-600/20 p-2 rounded border border-red-600/30 font-bold uppercase tracking-tight">
-                        ⚠️ NUNCA SE BORRA POR GOL EN CONTRA
-                    </div>
+        <div id="modalFaltas" class="fixed inset-0 z-[100] bg-slate-950/95 p-4 overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-xl font-black text-blue-400 italic italic">GUÍA VISUAL IIHF</h2>
+                <button onclick="cerrarModal()" class="text-slate-400 text-2xl px-2">&times;</button>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-4 grid-faltas mb-10">
+                <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('GANCHO (Hooking)', '2 MINUTOS', 'SÍ', 'BTN 10 + Dorsal + V', 'Acción de tirar del oponente con el stick para impedir su progreso.')">
+                    <img src="https://i.ibb.co/6y466fJ/gancho.png" alt="Gancho" class="mb-2">
+                    <span class="text-[10px] font-bold uppercase">Gancho</span>
                 </div>
-
-                <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-slate-500 p-4 rounded-xl" data-search="conducta mala conducta 10 minutos protesta insultos expulsado oficial">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 class="font-bold text-slate-300 italic uppercase">Mala Conducta - 10 Min</h3>
-                            <p class="text-[11px] text-slate-400 mt-1 italic">Protestas, Actitud antideportiva...</p>
-                        </div>
-                        <span class="bg-slate-600 text-white text-[10px] px-2 py-1 rounded font-black uppercase tracking-tighter">Botón 13</span>
-                    </div>
-                    <div class="mt-3 text-[10px] text-slate-400 bg-slate-800 p-2 rounded">
-                        Juego 5vs5. El jugador no entra hasta que el juego pare tras los 10'.
-                    </div>
+                <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('ZANCADILLA (Tripping)', '2 MINUTOS', 'SÍ', 'BTN 10 + Dorsal + V', 'Colocar el stick o pierna de forma que el oponente tropiece.')">
+                    <img src="https://i.ibb.co/sK6fX6X/zancadilla.png" alt="Zancadilla" class="mb-2">
+                    <span class="text-[10px] font-bold uppercase">Zancadilla</span>
+                </div>
+                <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('CARGA VALLA (Boarding)', '2 MIN o 5+GM', 'SEGÚN TIEMPO', 'BTN 10 o 12 + Dorsal + V', 'Cargar violentamente a un jugador contra la valla protectora.')">
+                    <img src="https://i.ibb.co/6P0L8yX/valla.png" alt="Carga Valla" class="mb-2">
+                    <span class="text-[10px] font-bold uppercase">Carga Valla</span>
+                </div>
+                <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('HACHAZO (Slashing)', '2 MINUTOS', 'SÍ', 'BTN 10 + Dorsal + V', 'Golpear con fuerza el stick o el cuerpo del rival con el propio stick.')">
+                    <img src="https://i.ibb.co/YTL2YwT/hachazo.png" alt="Hachazo" class="mb-2">
+                    <span class="text-[10px] font-bold uppercase">Hachazo</span>
+                </div>
+                <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('RETENCIÓN (Holding)', '2 MINUTOS', 'SÍ', 'BTN 10 + Dorsal + V', 'Sujetar al rival o su equipamiento con las manos o stick.')">
+                    <img src="https://i.ibb.co/Qf98T8L/retencion.png" alt="Retención" class="mb-2">
+                    <span class="text-[10px] font-bold uppercase">Retención</span>
+                </div>
+                <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('BASTÓN ALTO (High Stick)', '2 MIN o 2+2', 'SÍ', 'BTN 10 (+ BTN 10 si hay sangre)', 'Stick por encima de los hombros que contacta con el rival.')">
+                    <img src="https://i.ibb.co/N7L8YfX/baston-alto.png" alt="Baston Alto" class="mb-2">
+                    <span class="text-[10px] font-bold uppercase">Bastón Alto</span>
                 </div>
             </div>
-        </section>
+        </div>
 
         <section class="bg-red-950/20 border border-red-500/20 p-5 rounded-3xl shadow-inner">
             <h2 class="text-red-500 font-black text-[11px] uppercase tracking-widest mb-4 flex items-center italic">
@@ -141,6 +144,7 @@
     </div>
 
     <script>
+        // Lógica de búsqueda
         const searchInput = document.getElementById('searchInput');
         const cards = document.querySelectorAll('.penalty-card');
 
@@ -155,6 +159,27 @@
                 }
             });
         });
+
+        // Lógica del Panel de Faltas
+        function abrirModal() {
+            document.getElementById('modalFaltas').style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Evita scroll de fondo
+        }
+
+        function cerrarModal() {
+            document.getElementById('modalFaltas').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function verInfoFalta(nombre, tiempo, marcador, botones, resumen) {
+            alert(
+                "🚩 FALTA: " + nombre + "\n" +
+                "⏱️ TIEMPO: " + tiempo + "\n" +
+                "📺 ¿SUBE A MARCADOR?: " + marcador + "\n" +
+                "🔘 CONSOLA: " + botones + "\n\n" +
+                "📝 RESUMEN: " + resumen
+            );
+        }
     </script>
 </body>
 </html>
