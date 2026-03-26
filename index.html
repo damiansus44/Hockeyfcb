@@ -11,7 +11,7 @@
         .glass { background: rgba(30, 41, 59, 0.9); backdrop-filter: blur(12px); }
         input::placeholder { color: #94a3b8; }
         #modalFaltas { display: none; }
-        .grid-faltas img { cursor: pointer; border-radius: 8px; border: 1px solid #334155; width: 100%; height: auto; background: #1e293b; object-fit: contain; }
+        .grid-faltas img { cursor: pointer; border-radius: 8px; border: 1px solid #334155; width: 100%; height: auto; background: #1e293b; }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans pb-10">
@@ -19,12 +19,12 @@
     <nav class="sticky top-0 z-50 glass p-4 shadow-2xl border-b border-slate-700">
         <div class="flex items-center justify-between mb-4">
             <div>
-                <h1 class="text-xl font-black text-blue-400 italic leading-none uppercase">STRAMATEL 452</h1>
-                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1 italic">Manual de Oficiales de Mesa</p>
+                <h1 class="text-xl font-black text-blue-400 italic leading-none">STRAMATEL 452</h1>
+                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">Manual de Oficiales de Mesa</p>
             </div>
             <div class="flex flex-col items-end">
-                <span class="bg-blue-500/20 text-blue-400 text-[9px] font-black px-2 py-0.5 rounded border border-blue-500/30 mb-1 tracking-tighter">EDICIÓN PRO</span>
-                <span class="bg-red-600 animate-pulse text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-tighter">En Vivo</span>
+                <span class="bg-blue-500/20 text-blue-400 text-[9px] font-black px-2 py-0.5 rounded border border-blue-500/30 mb-1">EDICIÓN PRO</span>
+                <span class="bg-red-600 animate-pulse text-[9px] font-bold px-2 py-0.5 rounded-full uppercase">En Vivo</span>
             </div>
         </div>
         
@@ -72,86 +72,155 @@
             <h2 class="text-[11px] font-black text-slate-500 uppercase mb-3 tracking-[0.2em] ml-1">Diccionario LNHH / FEDHielo</h2>
             <div class="space-y-3">
                 <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-blue-500 p-4 rounded-xl" data-search="menor 2 minutos gancho zancadilla hachazo retencion interferencia minor">
-                    <div class="flex justify-between items-start italic">
+                    <div class="flex justify-between items-start">
                         <div>
-                            <h3 class="font-bold text-blue-400 uppercase text-sm">Menor - 2 Minutos</h3>
-                            <p class="text-[11px] text-slate-400 mt-1 italic font-medium leading-tight">Enganche, Zancadilla, Hachazo, Interferencia...</p>
+                            <h3 class="font-bold text-blue-400 italic uppercase">Menor - 2 Minutos</h3>
+                            <p class="text-[11px] text-slate-400 mt-1 italic">Enganche, Zancadilla, Hachazo, Interferencia...</p>
                         </div>
-                        <span class="bg-blue-500 text-white text-[9px] px-2 py-1 rounded font-black uppercase tracking-tight">Botón 10</span>
+                        <span class="bg-blue-500 text-white text-[10px] px-2 py-1 rounded font-black uppercase tracking-tighter">Botón 10</span>
                     </div>
                     <div class="mt-3 flex items-center text-[10px] text-blue-300 bg-blue-500/10 p-2 rounded border border-blue-500/20">
-                        <i class="fa fa-info-circle mr-2 shrink-0"></i> Se borra si hay gol en contra (LIST + BTN 17)
+                        <i class="fa fa-info-circle mr-2"></i> SE BORRA SI HAY GOL EN CONTRA (LIST + BTN 17)
                     </div>
                 </div>
 
                 <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-orange-500 p-4 rounded-xl" data-search="2+2 doble menor sangre baston alto dureza accidental">
-                    <div class="flex justify-between items-start italic">
+                    <div class="flex justify-between items-start">
                         <div>
-                            <h3 class="font-bold text-orange-400 uppercase text-sm leading-tight">Doble Menor - 2+2 Min</h3>
-                            <p class="text-[11px] text-slate-400 mt-1 italic font-medium leading-tight">Bastón alto (sangre), Dureza...</p>
+                            <h3 class="font-bold text-orange-400 italic uppercase">Doble Menor - 2+2 Min</h3>
+                            <p class="text-[11px] text-slate-400 mt-1 italic">Bastón alto (con sangre), Dureza excesiva...</p>
                         </div>
-                        <span class="bg-orange-500 text-white text-[9px] px-2 py-1 rounded font-black uppercase tracking-tight italic">BTN 10 x2</span>
+                        <span class="bg-orange-500 text-white text-[10px] px-2 py-1 rounded font-black uppercase italic tracking-tighter">Botón 10 x2</span>
+                    </div>
+                    <div class="mt-3 text-[10px] text-orange-200 bg-orange-500/10 p-2 rounded border border-orange-500/20">
+                        Cargar 2' + Dorsal + V. Repetir proceso para los segundos 2'.
                     </div>
                 </div>
 
-                <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-red-600 p-4 rounded-xl" data-search="mayor 5 minutos pelea fight valla carga peligrosa expulsado castigo major">
-                    <div class="flex justify-between items-start italic">
+                <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-red-600 p-4 rounded-xl" data-search="mayor 5 minutos pelea fight valla carga peligrosa expulsado castigo">
+                    <div class="flex justify-between items-start">
                         <div>
-                            <h3 class="font-bold text-red-500 uppercase text-sm leading-tight">Mayor - 5 Minutos</h3>
-                            <p class="text-[11px] text-slate-400 mt-1 italic font-medium leading-tight">Peleas, Carga valla, Expulsión...</p>
+                            <h3 class="font-bold text-red-500 italic uppercase">Mayor - 5 Minutos</h3>
+                            <p class="text-[11px] text-slate-400 mt-1 italic">Peleas, Carga contra la valla, Expulsión...</p>
                         </div>
-                        <span class="bg-red-600 text-white text-[9px] px-2 py-1 rounded font-black uppercase tracking-tight italic">Botón 12</span>
+                        <span class="bg-red-600 text-white text-[10px] px-2 py-1 rounded font-black uppercase tracking-tighter">Botón 12</span>
+                    </div>
+                    <div class="mt-3 text-[10px] text-red-200 bg-red-600/20 p-2 rounded border border-red-600/30 font-bold uppercase tracking-tight">
+                        ⚠️ NUNCA SE BORRA POR GOL EN CONTRA
                     </div>
                 </div>
 
-                <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-slate-500 p-4 rounded-xl" data-search="conducta mala conducta 10 minutos protesta insultos expulsado oficial misconduct">
-                    <div class="flex justify-between items-start italic">
+                <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-slate-500 p-4 rounded-xl" data-search="conducta mala conducta 10 minutos protesta insultos expulsado oficial">
+                    <div class="flex justify-between items-start">
                         <div>
-                            <h3 class="font-bold text-slate-300 uppercase text-sm">Mala Conducta - 10 Min</h3>
-                            <p class="text-[11px] text-slate-400 mt-1 italic font-medium leading-tight leading-tight">Protestas, Actitud antideportiva...</p>
+                            <h3 class="font-bold text-slate-300 italic uppercase">Mala Conducta - 10 Min</h3>
+                            <p class="text-[11px] text-slate-400 mt-1 italic">Protestas, Actitud antideportiva...</p>
                         </div>
-                        <span class="bg-slate-600 text-white text-[9px] px-2 py-1 rounded font-black uppercase tracking-tight italic">Botón 13</span>
+                        <span class="bg-slate-600 text-white text-[10px] px-2 py-1 rounded font-black uppercase tracking-tighter">Botón 13</span>
+                    </div>
+                    <div class="mt-3 text-[10px] text-slate-400 bg-slate-800 p-2 rounded">
+                        Juego 5vs5. El jugador no entra hasta que el juego pare tras los 10'.
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="bg-red-950/20 border border-red-500/20 p-5 rounded-3xl shadow-inner mb-8">
+        <section class="bg-red-950/20 border border-red-500/20 p-5 rounded-3xl shadow-inner">
             <h2 class="text-red-500 font-black text-[11px] uppercase tracking-widest mb-4 flex items-center italic">
-                <i class="fa fa-triangle-exclamation mr-2"></i> SOS Mesa
+                <i class="fa fa-triangle-exclamation mr-2"></i> Protocolo de Emergencia
             </h2>
             <div class="grid grid-cols-1 gap-3 text-[11px]">
-                <div class="flex items-center gap-3 bg-slate-900/50 p-3 rounded-xl border border-slate-800">
-                    <span class="text-red-500 font-bold">1</span>
-                    <p><b class="text-slate-100 uppercase italic">Apagón:</b> Enciende y pulsa <b class="text-green-400 italic font-black">V</b></p>
+                <div class="flex items-start gap-3 bg-slate-900/50 p-3 rounded-xl border border-slate-800">
+                    <span class="text-red-500 font-bold">1.</span>
+                    <p><b class="text-slate-100 uppercase italic">Apagón:</b> Enciende y pulsa <b class="text-green-400">V</b> para "Continuar Partido Anterior".</p>
                 </div>
-                <div class="flex items-center gap-3 bg-slate-900/50 p-3 rounded-xl border border-slate-800">
-                    <span class="text-red-500 font-bold">2</span>
-                    <p><b class="text-slate-100 uppercase italic">Reinicio:</b> Mantén <b class="text-slate-100 uppercase">RESET (15)</b></p>
+                <div class="flex items-start gap-3 bg-slate-900/50 p-3 rounded-xl border border-slate-800">
+                    <span class="text-red-500 font-bold">2.</span>
+                    <p><b class="text-slate-100 uppercase italic">Reinicio Total:</b> Mantener 3 seg el botón <b class="text-slate-100 uppercase">RESET (15)</b> en la central.</p>
+                </div>
+                <div class="flex items-start gap-3 bg-slate-900/50 p-3 rounded-xl border border-slate-800">
+                    <span class="text-red-500 font-bold">3.</span>
+                    <p><b class="text-slate-100 uppercase italic">Lista:</b> Usa las teclas <b class="text-blue-400">LIST (15/16)</b> para ver quién está sancionado.</p>
                 </div>
             </div>
         </section>
     </div>
 
-    <div id="modalFaltas" class="fixed inset-0 z-[100] bg-slate-950/98 p-4 overflow-y-auto w-full h-full">
-        <div class="max-w-md mx-auto">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-xl font-black text-blue-400 italic leading-tight uppercase">Guía Visual IIHF</h2>
-                <button onclick="cerrarModal()" class="text-slate-400 text-3xl px-2 leading-none">&times;</button>
+    <div id="modalFaltas" class="fixed inset-0 z-[100] bg-slate-950/98 p-4 overflow-y-auto">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-xl font-black text-blue-400 italic">GUÍA VISUAL IIHF (32 SEÑALES)</h2>
+            <button onclick="cerrarModal()" class="text-slate-400 text-3xl px-2">&times;</button>
+        </div>
+        
+        <div class="grid grid-cols-2 gap-4 grid-faltas mb-10">
+            <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('GANCHO', '2 min', 'SI', 'BTN 10', 'Enganche con el stick.')">
+                <img src="gancho.png" alt="Gancho" class="mb-2">
+                <span class="text-[10px] font-bold uppercase italic text-blue-400">Gancho</span>
+            </div>
+            <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('HACHAZO', '2 min', 'SI', 'BTN 10', 'Golpear con el stick.')">
+                <img src="hachazo.png" alt="Hachazo" class="mb-2">
+                <span class="text-[10px] font-bold uppercase italic text-blue-400">Hachazo</span>
+            </div>
+            <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('BASTÓN ALTO', '2 o 2+2 min', 'SI', 'BTN 10', 'Stick sobre hombros.')">
+                <img src="baston_alto.png" alt="Baston Alto" class="mb-2">
+                <span class="text-[10px] font-bold uppercase italic text-blue-400">Bastón Alto</span>
+            </div>
+            <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('CROSS-CHECKING', '2 min', 'SI', 'BTN 10', 'Carga con stick entre manos.')">
+                <img src="crosscheck.png" alt="Cross" class="mb-2">
+                <span class="text-[10px] font-bold uppercase italic text-blue-400">Cross-Check</span>
             </div>
             
-            <div class="grid grid-cols-2 gap-4 grid-faltas mb-10">
-                <div class="penalty-card bg-slate-900 border border-slate-800 p-2 rounded-xl text-center" data-search="tiro castigo penalty shot brazoscruzados castigo lanzamiento" 
-                     onclick="verInfoFalta('TIRO CASTIGO (PENALTY SHOT)', 'Lanzamiento Único', 'NO CARGAR TIEMPO', 'SUMAR +1 GOL SI ENTRA', 'Gesto: Brazos cruzados sobre la cabeza. Detener el reloj inmediatamente, no se descuenta tiempo.')">
-                    <img src="https://i.ibb.co/6y466fJ/penalti.png" alt="Tiro Castigo" class="mb-2">
-                    <span class="text-[10px] font-bold uppercase italic text-yellow-500 italic">Tiro Castigo (PS)</span>
-                </div>
-                
-                <div class="penalty-card bg-slate-900 border border-slate-800 p-2 rounded-xl text-center" data-search="gancho enganche hooking trip trip" onclick="verInfoFalta('GANCHO (HOOKING)', '2 MINUTOS', 'SÍ', 'BTN 10 + Dorsal + V', 'Acción de tirar con stick.')">
-                    <img src="https://i.ibb.co/M9KzG7F/gancho.png" alt="Gancho" class="mb-2">
-                    <span class="text-[10px] font-bold uppercase italic text-blue-400">Gancho</span>
-                </div>
-                </div>
+            <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('ZANCADILLA', '2 min', 'SI', 'BTN 10', 'Tropezar al rival.')">
+                <img src="zancadilla.png" alt="Zancadilla" class="mb-2">
+                <span class="text-[10px] font-bold uppercase italic text-blue-400">Zancadilla</span>
+            </div>
+            <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('CARGA VALLA', '2 o 5 min', 'SI', 'BTN 10/12', 'Carga peligrosa contra valla.')">
+                <img src="valla.png" alt="Carga" class="mb-2">
+                <span class="text-[10px] font-bold uppercase italic text-red-500 italic">Carga Valla</span>
+            </div>
+            <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('CARGA ILEGAL', '2 o 5 min', 'SI', 'BTN 10/12', 'Carga violenta saltando.')">
+                <img src="carga_ilegal.png" alt="Carga" class="mb-2">
+                <span class="text-[10px] font-bold uppercase italic text-red-500 italic">Carga Ilegal</span>
+            </div>
+            <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('CODAZO', '2 min', 'SI', 'BTN 10', 'Golpear con el codo.')">
+                <img src="codazo.png" alt="Codazo" class="mb-2">
+                <span class="text-[10px] font-bold uppercase italic text-blue-400">Codazo</span>
+            </div>
+            <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('ROUGHING', '2 min', 'SI', 'BTN 10', 'Dureza innecesaria.')">
+                <img src="roughing.png" alt="Rough" class="mb-2">
+                <span class="text-[10px] font-bold uppercase italic text-blue-400">Roughing</span>
+            </div>
+            <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('INTERFERENCIA', '2 min', 'SI', 'BTN 10', 'Obstruir jugador sin disco.')">
+                <img src="interferencia.png" alt="Inter" class="mb-2">
+                <span class="text-[10px] font-bold uppercase italic text-blue-400">Interferencia</span>
+            </div>
+
+            <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('MALA CONDUCTA', '10 min', 'SI', 'BTN 13', '10 min expulsión personal.')">
+                <img src="mala_conducta.png" alt="Misc" class="mb-2">
+                <span class="text-[10px] font-bold uppercase italic text-slate-400">Mala Conducta</span>
+            </div>
+            <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('TIRO CASTIGO', '0 min', 'NO', '+1 GOL', 'Lanzamiento de penalti.')">
+                <img src="tiro_castigo.png" alt="PS" class="mb-2">
+                <span class="text-[10px] font-bold uppercase italic text-yellow-500 italic">Penalti (PS)</span>
+            </div>
+            <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('KNEEING', '2 o 5 min', 'SI', 'BTN 10/12', 'Carga con la rodilla.')">
+                <img src="rodilla.png" alt="Knee" class="mb-2">
+                <span class="text-[10px] font-bold uppercase italic text-red-500 italic italic">Rodilla</span>
+            </div>
+            <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('BUTT-ENDING', '5+GM', 'SI', 'BTN 12', 'Punta del mango del stick.')">
+                <img src="buttending.png" alt="Butt" class="mb-2">
+                <span class="text-[10px] font-bold uppercase italic text-red-600 italic italic">Punta Stick</span>
+            </div>
+            <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('SPEARING', '5+GM', 'SI', 'BTN 12', 'Clavar la pala del stick.')">
+                <img src="spearing.png" alt="Spear" class="mb-2">
+                <span class="text-[10px] font-bold uppercase italic text-red-600 italic italic">Lanzada</span>
+            </div>
+            <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('CLIPPING', '2 o 5 min', 'SI', 'BTN 10/12', 'Carga por debajo de la rodilla.')">
+                <img src="clipping.png" alt="Clip" class="mb-2">
+                <span class="text-[10px] font-bold uppercase italic text-red-500 italic italic">Corte Bajo</span>
+            </div>
+            
+            <div class="col-span-2 text-center text-slate-500 text-[9px] mt-4">Cargar más señales (32 señales totales según IIHF)...</div>
         </div>
     </div>
 
@@ -173,7 +242,7 @@
 
         function abrirModal() {
             document.getElementById('modalFaltas').style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Evita scroll de fondo
+            document.body.style.overflow = 'hidden';
         }
 
         function cerrarModal() {
@@ -182,7 +251,7 @@
         }
 
         function verInfoFalta(nombre, tiempo, marcador, botones, resumen) {
-            alert(`🚩 ${nombre}\n⏱️ ${tiempo}\n📺 Marcador: ${marcador}\n🔘 Consola: ${botones}\n📝 ${resumen}`);
+            alert(`🚩 ${nombre}\n⏱️ ${tiempo}\n📺 Marcador: ${marcador}\n🔘 BTN: ${botones}\n📝 ${resumen}`);
         }
     </script>
 </body>
