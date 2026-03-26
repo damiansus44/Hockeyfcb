@@ -3,138 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stramatel 452 Pro - IIHF Edition</title>
+    <title>Stramatel 452 - Hockey Hielo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .penalty-card { transition: all 0.2s ease; }
-        .glass { background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(12px); }
+        .glass { background: rgba(30, 41, 59, 0.9); backdrop-filter: blur(12px); }
         input::placeholder { color: #94a3b8; }
-        .tab-btn { border-bottom: 2px solid transparent; }
-        .tab-btn.active { border-color: #3b82f6; color: #3b82f6; }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans pb-20">
+<body class="bg-slate-950 text-slate-100 font-sans pb-10">
 
     <nav class="sticky top-0 z-50 glass p-4 shadow-2xl border-b border-slate-700">
         <div class="flex items-center justify-between mb-4">
             <div>
-                <h1 class="text-xl font-black text-blue-400 italic">STRAMATEL 452</h1>
-                <p class="text-[9px] text-slate-400 font-bold uppercase tracking-widest">Reglamento IIHF 2024-2025</p>
+                <h1 class="text-xl font-black text-blue-400 italic leading-none">STRAMATEL 452</h1>
+                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">Manual de Oficiales de Mesa</p>
             </div>
-            <span class="bg-red-600 animate-pulse text-[9px] font-bold px-2 py-0.5 rounded-full uppercase">Mesa Live</span>
+            <div class="flex flex-col items-end">
+                <span class="bg-blue-500/20 text-blue-400 text-[9px] font-black px-2 py-0.5 rounded border border-blue-500/30 mb-1">EDICIÓN PRO</span>
+                <span class="bg-red-600 animate-pulse text-[9px] font-bold px-2 py-0.5 rounded-full uppercase">En Vivo</span>
+            </div>
         </div>
         <div class="relative">
             <i class="fa fa-search absolute left-3 top-3.5 text-slate-500"></i>
-            <input type="text" id="searchInput" placeholder="Busca falta (ej: 5+GM, Hachazo, Penalty...)" 
-            class="w-full bg-slate-900 border border-slate-700 rounded-xl py-3 pl-10 pr-4 text-white focus:ring-2 focus:ring-blue-500 outline-none shadow-inner">
+            <input type="text" id="searchInput" placeholder="Busca falta o acción (ej: Gancho, 2+2, gol...)" 
+            class="w-full bg-slate-900 border border-slate-700 rounded-xl py-3 pl-10 pr-4 text-white focus:ring-2 focus:ring-blue-500 outline-none transition-all shadow-inner text-sm">
         </div>
     </nav>
 
     <div class="p-4 space-y-6">
         
-        <div class="grid grid-cols-2 gap-2">
-            <button onclick="alert('CORREGIR GOL:\nMantener C (16) + Botón GOL')" class="bg-slate-800 p-3 rounded-xl border border-slate-700 flex flex-col items-center">
-                <i class="fa fa-undo text-blue-400 mb-1"></i>
-                <span class="text-[9px] font-bold uppercase tracking-tighter italic text-slate-400 italic">Restar Gol</span>
-            </button>
-            <button onclick="alert('AJUSTAR TIEMPO:\nSTOP -> C (16) + BTN 18 -> Escribir -> V')" class="bg-slate-800 p-3 rounded-xl border border-slate-700 flex flex-col items-center">
-                <i class="fa fa-clock text-amber-400 mb-1"></i>
-                <span class="text-[9px] font-bold uppercase tracking-tighter italic text-slate-400 italic italic">Editar Reloj</span>
-            </button>
-        </div>
-
-        <div id="faultsContainer" class="space-y-3">
-            <h2 class="text-[11px] font-black text-slate-500 uppercase tracking-[0.2em] ml-1">Sanciones de Marcador</h2>
-
-            <div class="penalty-card bg-slate-900 border-l-4 border-blue-500 p-4 rounded-r-xl shadow-lg" data-search="menor 2 minutos gancho zancadilla hachazo interferencia minor slas trip hook bench banquillo">
-                <div class="flex justify-between items-start">
-                    <h3 class="font-bold text-blue-400 italic uppercase">Menor - 2 Min</h3>
-                    <span class="bg-blue-600 text-white text-[10px] px-2 py-1 rounded font-black tracking-tighter">BTN 10</span>
+        <section>
+            <h2 class="text-[11px] font-black text-slate-500 uppercase mb-3 tracking-[0.2em] ml-1 text-center italic">Controles Rápidos de Consola</h2>
+            <div class="grid grid-cols-2 gap-3">
+                <div class="bg-slate-800 border border-slate-700 p-4 rounded-2xl flex flex-col items-center shadow-lg active:bg-slate-700 active:scale-95 transition-all text-center" 
+                     onclick="alert('RESTAR GOL:\n1. Mantén pulsado C (16)\n2. Pulsa botón de GOL (+1)\n3. El marcador restará 1 gol.')">
+                    <i class="fa fa-minus-circle text-blue-400 text-2xl mb-2"></i>
+                    <span class="text-[10px] font-black uppercase tracking-tighter">Restar Gol</span>
                 </div>
-                <p class="text-[10px] text-slate-400 mt-1 italic">Incluye: Bench Minor (Falta de banquillo).</p>
-                <div class="mt-2 text-[9px] bg-blue-500/10 p-2 rounded text-blue-300 border border-blue-500/20">
-                    <i class="fa fa-info-circle mr-1 italic"></i> SE BORRA SI HAY GOL EN CONTRA.
+                <div class="bg-slate-800 border border-slate-700 p-4 rounded-2xl flex flex-col items-center shadow-lg active:bg-slate-700 active:scale-95 transition-all text-center" 
+                     onclick="alert('EDITAR RELOJ:\n1. Pulsa PARAR (Stop)\n2. Mantén C (16) + Crono (18)\n3. Teclea tiempo (ej: 1230) + Validar (V)')">
+                    <i class="fa fa-clock text-amber-400 text-2xl mb-2"></i>
+                    <span class="text-[10px] font-black uppercase tracking-tighter">Editar Reloj</span>
                 </div>
-            </div>
-
-            <div class="penalty-card bg-slate-900 border-l-4 border-red-600 p-4 rounded-r-xl shadow-lg" data-search="mayor 5 minutos boarding valla pelea fight major expulsado 5+gm game misconduct">
-                <div class="flex justify-between items-start">
-                    <h3 class="font-bold text-red-500 italic uppercase italic">Mayor - 5 Min</h3>
-                    <span class="bg-red-700 text-white text-[10px] px-2 py-1 rounded font-black tracking-tighter italic">BTN 12</span>
+                <div class="bg-slate-800 border border-slate-700 p-4 rounded-2xl flex flex-col items-center shadow-lg active:bg-slate-700 active:scale-95 transition-all text-center" 
+                     onclick="alert('EDITAR TIEMPO FALTA:\n1. En consola AUX, usa LIST (15/16) para buscar al jugador.\n2. Pulsa botón EDITAR (18 - Flecha curva).\n3. Teclea nuevo tiempo y pulsa V.')">
+                    <i class="fa fa-stopwatch text-orange-500 text-2xl mb-2"></i>
+                    <span class="text-[10px] font-black uppercase tracking-tighter italic">Editar Falta</span>
                 </div>
-                <p class="text-[10px] text-slate-400 mt-1 italic">Cargas contra la valla, Peleas, 5+GM.</p>
-                <div class="mt-2 text-[9px] bg-red-900/20 p-2 rounded text-red-400 border border-red-900/30 font-bold uppercase">
-                    ❌ NUNCA SE BORRA POR GOL EN CONTRA.
-                </div>
-            </div>
-
-            <div class="penalty-card bg-slate-800 border-l-4 border-slate-400 p-4 rounded-r-xl shadow-lg" data-search="mala conducta 10 minutos misconduct protesta oficial abuse">
-                <div class="flex justify-between items-start">
-                    <h3 class="font-bold text-slate-300 italic uppercase">Mala Conducta - 10 Min</h3>
-                    <span class="bg-slate-600 text-white text-[10px] px-2 py-1 rounded font-black tracking-tighter italic">BTN 13</span>
-                </div>
-                <p class="text-[10px] text-slate-400 mt-1 italic">Abuso de oficiales, Actitud antideportiva grave.</p>
-                <div class="mt-2 text-[9px] bg-slate-700 p-2 rounded text-slate-400">
-                    Equipo sigue 5vs5. El jugador no sale hasta la 1ª parada tras los 10'.
-                </div>
-            </div>
-
-            <div class="penalty-card bg-red-950 border border-red-800 p-4 rounded-xl shadow-lg" data-search="partido 20 minutos match penalty expulsado sangre lesion grave">
-                <div class="flex justify-between items-start">
-                    <h3 class="font-bold text-red-400 italic uppercase">P. Partido - 20 Min</h3>
-                    <span class="bg-red-800 text-white text-[10px] px-1.5 py-1 rounded font-black tracking-tighter italic">EDICIÓN MESA</span>
-                </div>
-                <p class="text-[10px] text-red-200 mt-1 italic italic">Cargar 5 min en marcador. Expulsión inmediata.</p>
-                <div class="mt-2 text-[9px] bg-red-900/40 p-2 rounded text-red-100 italic border border-red-700 italic">
-                    <i class="fa fa-exclamation-triangle mr-1 italic"></i> En Stramatel: Carga como 5' (BTN 12). Se queda los 5' completos.
-                </div>
-            </div>
-
-            <div class="penalty-card bg-blue-900/30 border border-blue-800 p-4 rounded-xl shadow-lg" data-search="penalty shot lanzamiento tiro libre castigo">
-                <div class="flex justify-between items-start">
-                    <h3 class="font-bold text-blue-400 italic uppercase tracking-tight">Lanzamiento de Penalti</h3>
-                    <i class="fa fa-bullseye text-blue-500"></i>
-                </div>
-                <p class="text-[10px] text-slate-400 mt-1 italic">Gesto: Brazos cruzados sobre la cabeza.</p>
-                <div class="mt-2 text-[9px] bg-slate-900 p-2 rounded text-blue-200 border border-blue-800 italic">
-                    STOP Reloj -> No se carga tiempo -> Si es GOL, sumar +1 en Central.
-                </div>
-            </div>
-        </div>
-
-        <section class="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
-            <h2 class="text-xs font-black text-blue-400 uppercase tracking-widest mb-3 italic italic italic italic">Guía Visual Árbitro</h2>
-            <div class="grid grid-cols-1 gap-3 text-[10px]">
-                <div class="flex justify-between items-center p-2 bg-slate-800 rounded-lg italic">
-                    <span><b>GANCHO (Hook):</b> Tirar hacia el pecho.</span>
-                    <span class="bg-blue-600 px-2 rounded font-bold italic">2'</span>
-                </div>
-                <div class="flex justify-between items-center p-2 bg-slate-800 rounded-lg italic">
-                    <span><b>HACHAZO (Slash):</b> Cortar la mano.</span>
-                    <span class="bg-blue-600 px-2 rounded font-bold italic">2'</span>
-                </div>
-                <div class="flex justify-between items-center p-2 bg-slate-800 rounded-lg italic">
-                    <span><b>CARGA (Board):</b> Puño contra palma.</span>
-                    <span class="bg-red-700 px-2 rounded font-bold italic">5'+GM</span>
+                <div class="bg-slate-800 border border-slate-700 p-4 rounded-2xl flex flex-col items-center shadow-lg active:bg-slate-700 active:scale-95 transition-all text-center" 
+                     onclick="alert('BUSCAR JUGADOR SANCIONADO:\n1. Usa las flechas amarillas LIST (15 Izquierda / 16 Derecha).\n2. La pantalla LCD mostrará el Dorsal y el Tiempo restante de cada sancionado activo.')">
+                    <i class="fa fa-user-slash text-slate-300 text-2xl mb-2"></i>
+                    <span class="text-[10px] font-black uppercase tracking-tighter">Buscar Expulsado</span>
                 </div>
             </div>
         </section>
-    </div>
 
-    <div class="fixed bottom-0 left-0 right-0 glass border-t border-slate-700 grid grid-cols-3 p-2 gap-2 shadow-2xl">
-        <button onclick="alert('LIST (15/16) -> BTN 18 -> Editar -> V')" class="flex flex-col items-center py-1">
-            <i class="fa fa-edit text-slate-400"></i>
-            <span class="text-[8px] uppercase mt-1 italic italic italic">Editar Sanción</span>
-        </button>
-        <button onclick="alert('LIST (15/16) -> Seleccionar -> BTN 17')" class="flex flex-col items-center py-1">
-            <i class="fa fa-user-check text-green-500"></i>
-            <span class="text-[8px] uppercase mt-1 italic italic italic">Liberar (Gol)</span>
-        </button>
-        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="flex flex-col items-center py-1">
-            <i class="fa fa-search text-blue-400"></i>
-            <span class="text-[8px] uppercase mt-1 italic italic italic">Buscador</span>
-        </button>
+        <section id="faultsContainer">
+            <h2 class="text-[11px] font-black text-slate-500 uppercase mb-3 tracking-[0.2em] ml-1">Diccionario LNHH / FEDHielo</h2>
+            
+            <div class="space-y-3">
+                <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-blue-500 p-4 rounded-xl" data-search="menor 2 minutos gancho zancadilla hachazo retencion interferencia minor">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-bold text-blue-400 italic uppercase">Menor - 2 Minutos</h3>
+                            <p class="text-[11px] text-slate-400 mt-1 italic">Enganche, Zancadilla, Hachazo, Interferencia...</p>
+                        </div>
+                        <span class="bg-blue-500 text-white text-[10px] px-2 py-1 rounded font-black uppercase tracking-tighter">Botón 10</span>
+                    </div>
+                    <div class="mt-3 flex items-center text-[10px] text-blue-300 bg-blue-500/10 p-2 rounded border border-blue-500/20">
+                        <i class="fa fa-info-circle mr-2"></i> SE BORRA SI HAY GOL EN CONTRA (LIST + BTN 17)
+                    </div>
+                </div>
+
+                <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-orange-500 p-4 rounded-xl" data-search="2+2 doble menor sangre baston alto dureza accidental">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-bold text-orange-400 italic uppercase">Doble Menor - 2+2 Min</h3>
+                            <p class="text-[11px] text-slate-400 mt-1 italic">Bastón alto (con sangre), Dureza excesiva...</p>
+                        </div>
+                        <span class="bg-orange-500 text-white text-[10px] px-2 py-1 rounded font-black uppercase italic tracking-tighter">Botón 10 x2</span>
+                    </div>
+                    <div class="mt-3 text-[10px] text-orange-200 bg-orange-500/10 p-2 rounded border border-orange-500/20">
+                        Cargar 2' + Dorsal + V. Repetir proceso para los segundos 2'.
+                    </div>
+                </div>
+
+                <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-red-600 p-4 rounded-xl" data-search="mayor 5 minutos pelea fight valla carga peligrosa expulsado castigo">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-bold text-red-500 italic uppercase">Mayor - 5 Minutos</h3>
+                            <p class="text-[11px] text-slate-400 mt-1 italic">Peleas, Carga contra la valla, Expulsión...</p>
+                        </div>
+                        <span class="bg-red-600 text-white text-[10px] px-2 py-1 rounded font-black uppercase tracking-tighter">Botón 12</span>
+                    </div>
+                    <div class="mt-3 text-[10px] text-red-200 bg-red-600/20 p-2 rounded border border-red-600/30 font-bold uppercase tracking-tight">
+                        ⚠️ NUNCA SE BORRA POR GOL EN CONTRA
+                    </div>
+                </div>
+
+                <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-slate-500 p-4 rounded-xl" data-search="conducta mala conducta 10 minutos protesta insultos expulsado oficial">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-bold text-slate-300 italic uppercase">Mala Conducta - 10 Min</h3>
+                            <p class="text-[11px] text-slate-400 mt-1 italic">Protestas, Actitud antideportiva...</p>
+                        </div>
+                        <span class="bg-slate-600 text-white text-[10px] px-2 py-1 rounded font-black uppercase tracking-tighter">Botón 13</span>
+                    </div>
+                    <div class="mt-3 text-[10px] text-slate-400 bg-slate-800 p-2 rounded">
+                        Juego 5vs5. El jugador no entra hasta que el juego pare tras los 10'.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-red-950/20 border border-red-500/20 p-5 rounded-3xl shadow-inner">
+            <h2 class="text-red-500 font-black text-[11px] uppercase tracking-widest mb-4 flex items-center italic">
+                <i class="fa fa-triangle-exclamation mr-2"></i> Protocolo de Emergencia
+            </h2>
+            <div class="grid grid-cols-1 gap-3 text-[11px]">
+                <div class="flex items-start gap-3 bg-slate-900/50 p-3 rounded-xl border border-slate-800">
+                    <span class="text-red-500 font-bold">1.</span>
+                    <p><b class="text-slate-100 uppercase italic">Apagón:</b> Enciende y pulsa <b class="text-green-400">V</b> para "Continuar Partido Anterior".</p>
+                </div>
+                <div class="flex items-start gap-3 bg-slate-900/50 p-3 rounded-xl border border-slate-800">
+                    <span class="text-red-500 font-bold">2.</span>
+                    <p><b class="text-slate-100 uppercase italic">Reinicio Total:</b> Mantener 3 seg el botón <b class="text-slate-100 uppercase">RESET (15)</b> en la central.</p>
+                </div>
+                <div class="flex items-start gap-3 bg-slate-900/50 p-3 rounded-xl border border-slate-800">
+                    <span class="text-red-500 font-bold">3.</span>
+                    <p><b class="text-slate-100 uppercase italic">Lista:</b> Usa las teclas <b class="text-blue-400">LIST (15/16)</b> para ver quién está sancionado.</p>
+                </div>
+            </div>
+        </section>
+
     </div>
 
     <script>
