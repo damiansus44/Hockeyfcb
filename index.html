@@ -55,6 +55,14 @@
                     <i class="fa fa-clock text-amber-400 text-2xl mb-2"></i>
                     <span class="text-[10px] font-black uppercase tracking-tighter">Editar Reloj</span>
                 </div>
+                <div class="bg-slate-800 border border-slate-700 p-4 rounded-2xl flex flex-col items-center shadow-lg active:bg-slate-700 active:scale-95 transition-all" onclick="alert('EDITAR TIEMPO FALTA:\n1. En consola AUX, usa LIST (15/16) para buscar al jugador.\n2. Pulsa botón EDITAR (18 - Flecha curva).\n3. Teclea nuevo tiempo y pulsa V.')">
+                    <i class="fa fa-stopwatch text-orange-500 text-2xl mb-2"></i>
+                    <span class="text-[10px] font-black uppercase tracking-tighter italic">Editar Falta</span>
+                </div>
+                <div class="bg-slate-800 border border-slate-700 p-4 rounded-2xl flex flex-col items-center shadow-lg active:bg-slate-700 active:scale-95 transition-all" onclick="alert('BUSCAR JUGADOR SANCIONADO:\n1. Usa las flechas amarillas LIST (15 Izquierda / 16 Derecha).\n2. La pantalla LCD mostrará el Dorsal y el Tiempo restante.')">
+                    <i class="fa fa-user-slash text-slate-300 text-2xl mb-2"></i>
+                    <span class="text-[10px] font-black uppercase tracking-tighter">Buscar Expulsado</span>
+                </div>
             </div>
         </section>
 
@@ -65,9 +73,9 @@
                     <div class="flex justify-between items-start">
                         <div>
                             <h3 class="font-bold text-blue-400 italic uppercase">Menor - 2 Minutos</h3>
-                            <p class="text-[11px] text-slate-400 mt-1 italic">Enganche, Zancadilla, Hachazo, Interferencia...</p>
+                            <p class="text-[11px] text-slate-400 mt-1 italic">Enganche, Zancadilla, Hachazo...</p>
                         </div>
-                        <span onclick="guiaConsola('MENOR (2 min)', '1. Botón 10 (2\')\n2. Dorsal Jugador\n3. V (Validar)')" class="bg-blue-500 text-white text-[10px] px-2 py-1 rounded font-black uppercase tracking-tighter btn-instruccion">Botón 10</span>
+                        <span onclick="guiaConsola('MENOR (2 min)', '1. Botón 10 (2\')\n2. Dorsal Jugador\n3. V (Validar)')" class="bg-blue-500 text-white text-[10px] px-2 py-1 rounded font-black uppercase btn-instruccion">Botón 10</span>
                     </div>
                 </div>
 
@@ -89,6 +97,18 @@
                         </div>
                         <span onclick="guiaConsola('MAYOR (5 min)', '1. Botón 12 (5\')\n2. Dorsal + V')" class="bg-red-600 text-white text-[10px] px-2 py-1 rounded font-black btn-instruccion">Botón 12</span>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-red-950/20 border border-red-500/20 p-5 rounded-3xl shadow-inner">
+            <h2 class="text-red-500 font-black text-[11px] uppercase tracking-widest mb-4 flex items-center italic">
+                <i class="fa fa-triangle-exclamation mr-2"></i> Protocolo de Emergencia
+            </h2>
+            <div class="grid grid-cols-1 gap-3 text-[11px]">
+                <div class="flex items-start gap-3 bg-slate-900/50 p-3 rounded-xl border border-slate-800">
+                    <span class="text-red-500 font-bold italic">1.</span>
+                    <p><b class="text-slate-100 uppercase italic">Apagón:</b> Enciende y pulsa <b class="text-green-400 font-black">V</b>.</p>
                 </div>
             </div>
         </section>
@@ -121,13 +141,29 @@
                 <img src="zancadilla.png" alt="Zancadilla" class="mb-2">
                 <span class="text-[10px] font-bold uppercase italic text-blue-400">Zancadilla</span>
             </div>
-            <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('CARGA VALLA', '2 o 5 min', 'SI', 'BTN 10/12', 'Embestir contra la valla.')">
+            <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('CARGA VALLA', '2 o 5 min', 'SI', 'BTN 10/12', 'Carga peligrosa contra valla.')">
                 <img src="https://github.com/damiansus44/Hockeyfcb/blob/main/Embestir.png?raw=true" alt="Carga" class="mb-2">
                 <span class="text-[10px] font-bold uppercase italic text-red-500 italic">Carga Valla</span>
             </div>
-            <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('CARGA ILEGAL', '2 o 5 min', 'SI', 'BTN 10/12', 'Embestir (Charging).')">
+            <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('CARGA ILEGAL', '2 o 5 min', 'SI', 'BTN 10/12', 'Carga violenta saltando.')">
                 <img src="https://github.com/damiansus44/Hockeyfcb/blob/main/Embestir1.png?raw=true" alt="Carga" class="mb-2">
                 <span class="text-[10px] font-bold uppercase italic text-red-500 italic">Carga Ilegal</span>
+            </div>
+            <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('CODAZO', '2 min', 'SI', 'BTN 10', 'Golpear con el codo.')">
+                <img src="codazo.png" alt="Codazo" class="mb-2">
+                <span class="text-[10px] font-bold uppercase italic text-blue-400">Codazo</span>
+            </div>
+            <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('ROUGHING', '2 min', 'SI', 'BTN 10', 'Dureza innecesaria.')">
+                <img src="roughing.png" alt="Rough" class="mb-2">
+                <span class="text-[10px] font-bold uppercase italic text-blue-400">Roughing</span>
+            </div>
+            <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('INTERFERENCIA', '2 min', 'SI', 'BTN 10', 'Obstruir jugador sin disco.')">
+                <img src="interferencia.png" alt="Inter" class="mb-2">
+                <span class="text-[10px] font-bold uppercase italic text-blue-400">Interferencia</span>
+            </div>
+            <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('MALA CONDUCTA', '10 min', 'SI', 'BTN 13', '10 min expulsión personal.')">
+                <img src="mala_conducta.png" alt="Misc" class="mb-2">
+                <span class="text-[10px] font-bold uppercase italic text-slate-400">Mala Conducta</span>
             </div>
             <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('TIRO CASTIGO', '0 min', 'NO', '+1 GOL', 'Lanzamiento de penalti.')">
                 <img src="https://raw.githubusercontent.com/damiansus44/Hockeyfcb/refs/heads/main/Imagen%20HEIF.heic" alt="PS" class="mb-2">
@@ -137,11 +173,23 @@
                 <img src="https://github.com/damiansus44/Hockeyfcb/blob/main/Carga%20espalda.png?raw=true" alt="Carga Espalda" class="mb-2">
                 <span class="text-[10px] font-bold uppercase italic text-red-600 italic">Carga Espalda</span>
             </div>
-            <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('MALA CONDUCTA', '10 min', 'SI', 'BTN 13', '10 min personal.')">
-                <img src="mala_conducta.png" alt="Misc" class="mb-2">
-                <span class="text-[10px] font-bold uppercase italic text-slate-400">Mala Conducta</span>
+            <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('KNEEING', '2 o 5 min', 'SI', 'BTN 10/12', 'Carga con la rodilla.')">
+                <img src="rodilla.png" alt="Knee" class="mb-2">
+                <span class="text-[10px] font-bold uppercase italic text-red-500 italic">Rodilla</span>
             </div>
+            <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('BUTT-ENDING', '5+GM', 'SI', 'BTN 12', 'Punta del mango del stick.')">
+                <img src="buttending.png" alt="Butt" class="mb-2">
+                <span class="text-[10px] font-bold uppercase italic text-red-600 italic">Punta Stick</span>
             </div>
+            <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('SPEARING', '5+GM', 'SI', 'BTN 12', 'Clavar la pala del stick.')">
+                <img src="spearing.png" alt="Spear" class="mb-2">
+                <span class="text-[10px] font-bold uppercase italic text-red-600 italic">Lanzada</span>
+            </div>
+            <div class="bg-slate-900 p-2 rounded-xl text-center" onclick="verInfoFalta('CLIPPING', '2 o 5 min', 'SI', 'BTN 10/12', 'Carga por debajo de la rodilla.')">
+                <img src="clipping.png" alt="Clip" class="mb-2">
+                <span class="text-[10px] font-bold uppercase italic text-red-500 italic">Corte Bajo</span>
+            </div>
+        </div>
     </div>
 
     <script>
