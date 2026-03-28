@@ -69,11 +69,11 @@
         <section id="faultsContainer">
             <h2 class="text-[11px] font-black text-slate-500 uppercase mb-3 tracking-[0.2em] ml-1">Diccionario LNHH / FEDHielo</h2>
             <div class="space-y-3">
-                <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-blue-500 p-4 rounded-xl" data-search="menor 2 minutos gancho zancadilla hachazo retencion interferencia minor">
+                <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-blue-500 p-4 rounded-xl" data-search="menor 2 minutos gancho zancadilla hachazo retencion interferencia minor holding">
                     <div class="flex justify-between items-start italic">
                         <div>
                             <h3 class="font-bold text-blue-400 uppercase text-sm leading-tight italic">Menor - 2 Minutos</h3>
-                            <p class="text-[11px] text-slate-400 mt-1 italic font-medium leading-tight">Enganche, Zancadilla, Hachazo, Interferencia...</p>
+                            <p class="text-[11px] text-slate-400 mt-1 italic font-medium leading-tight">Enganche, Zancadilla, Hachazo, Agarrar...</p>
                         </div>
                         <span onclick="guiaConsola('MENOR (2 min)', '1. Pulsa botón ROJO 2\' (10)\n2. Teclea DORSAL del jugador\n3. Pulsa V (Validar)\n\n* Se borra si hay GOL en contra.')" class="bg-blue-500 text-white text-[9px] px-2 py-1 rounded font-black uppercase tracking-tight btn-instruccion italic">Botón 10</span>
                     </div>
@@ -96,16 +96,6 @@
                             <p class="text-[11px] text-slate-400 mt-1 italic font-medium leading-tight">Peleas, Carga contra la valla, Expulsión...</p>
                         </div>
                         <span onclick="guiaConsola('MAYOR (5 min)', '1. Pulsa botón ROJO 5\' (12)\n2. Teclea DORSAL del jugador\n3. Pulsa V (Validar)')" class="bg-red-600 text-white text-[9px] px-2 py-1 rounded font-black uppercase tracking-tight italic btn-instruccion italic">Botón 12</span>
-                    </div>
-                </div>
-
-                <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-slate-500 p-4 rounded-xl" data-search="conducta mala conducta 10 minutos protesta insultos expulsado oficial">
-                    <div class="flex justify-between items-start italic">
-                        <div>
-                            <h3 class="font-bold text-slate-300 uppercase text-sm leading-tight">Mala Conducta - 10 Min</h3>
-                            <p class="text-[11px] text-slate-400 mt-1 italic font-medium italic italic">Protestas, Actitud antideportiva...</p>
-                        </div>
-                        <span onclick="guiaConsola('MALA CONDUCTA (10 min)', '1. Pulsa botón ROJO 10\' (13)\n2. Teclea DORSAL del jugador\n3. Pulsa V (Validar)')" class="bg-slate-600 text-white text-[9px] px-2 py-1 rounded font-black uppercase tracking-tight italic btn-instruccion">Botón 13</span>
                     </div>
                 </div>
             </div>
@@ -206,6 +196,10 @@
             <div class="bg-slate-900 p-2 rounded-xl text-center shadow-md italic" onclick="verInfoFalta('CARGA CABEZA', '2 o 5+GM', 'SI', 'BTN 10/12', 'Golpe a la zona de la cabeza.')">
                 <img src="https://github.com/damiansus44/Hockeyfcb/blob/main/Carga%20ilegal%20cabeza.png?raw=true" alt="Carga Cabeza" class="mb-2 italic">
                 <span class="text-[10px] font-bold uppercase italic text-red-600 italic">Carga Cabeza</span>
+            </div>
+            <div class="bg-slate-900 p-2 rounded-xl text-center shadow-md italic" onclick="verInfoFalta('AGARRAR', '2 min', 'SI', 'BTN 10', 'Sujetar al oponente o su equipo.')">
+                <img src="https://github.com/damiansus44/Hockeyfcb/blob/main/Agarrar.png?raw=true" alt="Agarrar" class="mb-2 italic">
+                <span class="text-[10px] font-bold uppercase italic text-blue-400 italic">Agarrar (Holding)</span>
             </div>
         </div>
     </div>
