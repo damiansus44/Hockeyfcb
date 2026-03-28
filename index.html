@@ -69,13 +69,16 @@
         <section id="faultsContainer">
             <h2 class="text-[11px] font-black text-slate-500 uppercase mb-3 tracking-[0.2em] ml-1">Diccionario LNHH / FEDHielo</h2>
             <div class="space-y-3">
-                <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-blue-500 p-4 rounded-xl" data-search="menor 2 minutos gancho zancadilla hachazo retencion interferencia minor holding">
+                <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-blue-500 p-4 rounded-xl" data-search="menor 2 minutos gancho zancadilla hachazo retencion interferencia minor">
                     <div class="flex justify-between items-start italic">
                         <div>
-                            <h3 class="font-bold text-blue-400 uppercase text-sm leading-tight italic">Menor - 2 Minutos</h3>
-                            <p class="text-[11px] text-slate-400 mt-1 italic font-medium leading-tight">Enganche, Zancadilla, Hachazo, Agarrar...</p>
+                            <h3 class="font-bold text-blue-400 uppercase text-sm leading-tight italic italic">Menor - 2 Minutos</h3>
+                            <p class="text-[11px] text-slate-400 mt-1 italic font-medium leading-tight">Enganche, Zancadilla, Hachazo, Interferencia...</p>
                         </div>
                         <span onclick="guiaConsola('MENOR (2 min)', '1. Pulsa botón ROJO 2\' (10)\n2. Teclea DORSAL del jugador\n3. Pulsa V (Validar)\n\n* Se borra si hay GOL en contra.')" class="bg-blue-500 text-white text-[9px] px-2 py-1 rounded font-black uppercase tracking-tight btn-instruccion italic">Botón 10</span>
+                    </div>
+                    <div class="mt-3 flex items-center text-[10px] text-blue-300 bg-blue-500/10 p-2 rounded border border-blue-500/20">
+                        <i class="fa fa-info-circle mr-2 shrink-0"></i> PULSA EL BOTÓN AZUL PARA VER PASOS
                     </div>
                 </div>
 
@@ -85,7 +88,7 @@
                             <h3 class="font-bold text-orange-400 uppercase text-sm leading-tight italic">Doble Menor - 2+2 Min</h3>
                             <p class="text-[11px] text-slate-400 mt-1 italic font-medium leading-tight italic">Bastón alto (con sangre), Dureza...</p>
                         </div>
-                        <span onclick="guiaConsola('DOBLE MENOR (2+2 min)', '1. Pulsa botón ROJO 2\' (10)\n2. Teclea DORSAL + V\n3. Pulsa OTRA VEZ botón 2\' (10)\n4. Teclea MISMO DORSAL + V')" class="bg-orange-500 text-white text-[9px] px-2 py-1 rounded font-black uppercase tracking-tight italic btn-instruccion italic">Botón 10 x2</span>
+                        <span onclick="guiaConsola('DOBLE MENOR (2+2 min)', '1. Pulsa botón ROJO 2\' (10)\n2. Teclea DORSAL + V\n3. Pulsa OTRA VEZ botón 2\' (10)\n4. Teclea MISMO DORSAL + V\n\n* La consola acumula el tiempo automáticamente.')" class="bg-orange-500 text-white text-[9px] px-2 py-1 rounded font-black uppercase tracking-tight italic btn-instruccion italic">Botón 10 x2</span>
                     </div>
                 </div>
 
@@ -95,7 +98,17 @@
                             <h3 class="font-bold text-red-500 uppercase text-sm leading-tight italic italic">Mayor - 5 Minutos</h3>
                             <p class="text-[11px] text-slate-400 mt-1 italic font-medium leading-tight">Peleas, Carga contra la valla, Expulsión...</p>
                         </div>
-                        <span onclick="guiaConsola('MAYOR (5 min)', '1. Pulsa botón ROJO 5\' (12)\n2. Teclea DORSAL del jugador\n3. Pulsa V (Validar)')" class="bg-red-600 text-white text-[9px] px-2 py-1 rounded font-black uppercase tracking-tight italic btn-instruccion italic">Botón 12</span>
+                        <span onclick="guiaConsola('MAYOR (5 min)', '1. Pulsa botón ROJO 5\' (12)\n2. Teclea DORSAL del jugador\n3. Pulsa V (Validar)\n\n* NUNCA se borra por gol en contra.')" class="bg-red-600 text-white text-[9px] px-2 py-1 rounded font-black uppercase tracking-tight italic btn-instruccion italic">Botón 12</span>
+                    </div>
+                </div>
+
+                <div class="penalty-card bg-slate-900 border border-slate-800 border-l-4 border-l-slate-500 p-4 rounded-xl" data-search="conducta mala conducta 10 minutos protesta insultos expulsado oficial">
+                    <div class="flex justify-between items-start italic">
+                        <div>
+                            <h3 class="font-bold text-slate-300 uppercase text-sm leading-tight">Mala Conducta - 10 Min</h3>
+                            <p class="text-[11px] text-slate-400 mt-1 italic font-medium italic italic">Protestas, Actitud antideportiva...</p>
+                        </div>
+                        <span onclick="guiaConsola('MALA CONDUCTA (10 min)', '1. Pulsa botón ROJO 10\' (13)\n2. Teclea DORSAL del jugador\n3. Pulsa V (Validar)\n\n* Se juega 5vs5. Solo para control del jugador.')" class="bg-slate-600 text-white text-[9px] px-2 py-1 rounded font-black uppercase tracking-tight italic btn-instruccion">Botón 13</span>
                     </div>
                 </div>
             </div>
@@ -124,7 +137,7 @@
             <button onclick="cerrarModal()" class="text-slate-400 text-3xl px-2">&times;</button>
         </div>
         
-        <div class="grid grid-cols-2 gap-4 grid-faltas mb-10 italic">
+        <div class="grid grid-cols-2 gap-4 grid-faltas mb-10">
             <div class="bg-slate-900 p-2 rounded-xl text-center shadow-md italic" onclick="verInfoFalta('GANCHO', '2 min', 'SI', 'BTN 10', 'Enganche con el stick.')">
                 <img src="gancho.png" alt="Gancho" class="mb-2 italic">
                 <span class="text-[10px] font-bold uppercase italic text-blue-400 italic">Gancho</span>
@@ -199,7 +212,7 @@
             </div>
             <div class="bg-slate-900 p-2 rounded-xl text-center shadow-md italic" onclick="verInfoFalta('AGARRAR', '2 min', 'SI', 'BTN 10', 'Sujetar al oponente.')">
                 <img src="https://github.com/damiansus44/Hockeyfcb/blob/main/Agarrar.png?raw=true" alt="Agarrar" class="mb-2 italic">
-                <span class="text-[10px] font-bold uppercase italic text-blue-400 italic">Agarrar (Holding)</span>
+                <span class="text-[10px] font-bold uppercase italic text-blue-400 italic">Agarrar</span>
             </div>
         </div>
     </div>
